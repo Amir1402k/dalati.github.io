@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام </title>
+    <link rel="stylesheet" type="text/css" href="a.css">
+    <h1>ثبت نام در سایت پیام رسا</h1>
+    <form>
+        <label for="name">نام:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="name">شماره تلغن:</label>
+        <input type="text" id="name" name="name">
+    
+        <label for="age">سن:</label>
+        <input type="number" id="age" name="age">
+      
+        <label for="gender">جنسیت:</label>
+        <select id="gender" name="gender">
+          <option value="male">مرد</option>
+          <option value="female">زن</option>
+        </select>
+        
+        <label for="education">خدمات</label>
+        <input type="radio" id="education1" name="education" value="high school">
+        <label for="education1">نصب سانترال و تلفن و شیکه</label>
+        <input type="radio" id="education2" name="education" value="university">
+        <label for="education2">نصب سیستم امنیتی</label>
+        <input type="radio" id="education2" name="education" value="university">
+        <label for="education2">خرابی</label>
+    
+      
+        <button type="submit">ارسال</button>
+      </form>
+      <?php
+      if($_POST){
+         $name = $_POST['name'];
+         $age = $_POST['age'];
+         $gender = $_POST['gender'];
+         $education = $_POST['education'];
+         $interests = implode(",", $_POST['interests']);
+         $feedback = $_POST['feedback'];
+    
+         $data = "Name: ".$name."\nAge: ".$age."\nGender: ".$gender."\nEducation: ".$education."\nInterests: ".$interests."\nFeedback: ".$feedback."\n\n";
+    
+         $file = fopen('pasword.txt', 'a');
+         fwrite($file, $data);
+         fclose($file);
+    
+         echo "<p>اطلاعات با موفقیت ذخیره شد.</p>";
+      }
+      ?>
+</body>
+    
+      
+    
+</head>
+<body>
+    
+</body>
+</html>
